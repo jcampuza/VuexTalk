@@ -2,9 +2,17 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import { sync } from "vuex-router-sync";
+import * as filters from "./util/filters";
 import "./registerServiceWorker";
 
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key]);
+});
+
 Vue.config.productionTip = false;
+
+sync(store, router);
 
 new Vue({
   router,
