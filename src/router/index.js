@@ -1,7 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-const TopItemsView = () => import("../views/Top.vue");
+const createListView = type => () =>
+  import("../views/CreateListView").then(m => m.default(type));
 const ItemView = () => import("../views/ItemView.vue");
 
 Vue.use(Router);
@@ -11,8 +12,27 @@ export default new Router({
   base: process.env.BASE_URL,
   scrollBehavior: () => ({ y: 0 }),
   routes: [
-    { path: "/top/:page(\\d+)?", component: TopItemsView },
+    {
+      path: "/top/:page(\\d+)?",
+      component: createListView("top")
+    },
+    {
+      path: "/new/:page(\\d+)?",
+      component: createListView("new")
+    },
+    {
+      path: "/show/:page(\\d+)?",
+      component: createListView("show")
+    },
+    {
+      path: "/ask/:page(\\d+)?",
+      component: createListView("ask")
+    },
+    {
+      path: "/jobs/:page(\\d+)?",
+      component: createListView("job")
+    },
     { path: "/item/:id(\\d+)?", component: ItemView },
-    { path: "/", redirect: "/top" }
+    { path: "*", redirect: "/top" }
   ]
 });

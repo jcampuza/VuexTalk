@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="pagination">
-      <router-link v-if="page > 1" :to="'/top/' + (page - 1)">&lt; Prev </router-link>
+      <router-link v-if="page > 1" :to="`/${type}/${(page - 1)}`">&lt; Prev </router-link>
       <a v-else class="disabled">&lt; Prev</a>
       <span>{{page}} / {{maxPage}}</span>
-      <router-link v-if="page < maxPage" :to="'/top/' + (page + 1)">Next &gt;</router-link>
+      <router-link v-if="page < maxPage" :to="`/${type}/${(page + 1)}`">Next &gt;</router-link>
       <a v-else class="disabled">Next &gt;</a>
     </div>
     <transition :name="transition">
@@ -24,6 +24,7 @@ export default {
     ListItem
   },
   name: "top-stories-view",
+  props: ["type"],
   data() {
     return {
       transition: "slide-left",
@@ -32,7 +33,6 @@ export default {
     };
   },
   created() {
-    console.log(this.page);
     this.loadItems(this.page);
   },
 
@@ -47,7 +47,7 @@ export default {
 
     maxPage() {
       const { maxPageSize, lists } = this.$store.state;
-      return Math.ceil(lists["top"].length / maxPageSize);
+      return Math.ceil(lists[this.type].length / maxPageSize);
     }
   },
 
@@ -59,9 +59,9 @@ export default {
 
   methods: {
     async loadItems(to, from = -1) {
-      await this.$store.dispatch("FETCH_BY_TYPE", { type: "top" });
+      await this.$store.dispatch("FETCH_BY_TYPE", { type: this.type });
       if (this.page < 0 || this.page > this.maxPage) {
-        this.$router.replace(`top/1`);
+        this.$router.replace(`${this.type}/1`);
         return;
       }
 

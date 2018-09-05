@@ -28,6 +28,10 @@ export default new Vuex.Store({
 
         Vue.set(state.items, item.id, item);
       }
+    },
+
+    SET_ACTIVE_TYPE: (state, { type }) => {
+      state.active = type;
     }
   },
   getters: {
@@ -51,6 +55,7 @@ export default new Vuex.Store({
   },
   actions: {
     FETCH_BY_TYPE: async ({ commit, dispatch }, { type }) => {
+      commit("SET_ACTIVE_TYPE", { type });
       const ids = await fetchListType(type);
       commit("SET_IDS", { ids, type });
       return dispatch("FETCH_ACTIVE_ITEMS");

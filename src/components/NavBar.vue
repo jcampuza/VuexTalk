@@ -5,7 +5,7 @@
     <router-link to="/new">New </router-link>
     <router-link to="/ask">Ask</router-link>
     <router-link to="/show">Show</router-link>
-    <router-link to="/job">Jobs</router-link>
+    <router-link to="/jobs">Jobs</router-link>
   </header>
 </template>
 
@@ -31,6 +31,7 @@ export default {};
 .navigation h1 {
   color: #fff;
   margin-right: 1.5rem;
+  cursor: pointer;
 }
 
 .navigation a {

@@ -10,7 +10,6 @@ Firebase.initializeApp(config);
 const api = Firebase.database().ref(version);
 
 function fetch(child) {
-  console.log(`fetching entity ${child}`);
   return new Promise((resolve, reject) => {
     api.child(child).once(
       "value",
