@@ -5,10 +5,13 @@ import store from "./store";
 import { sync } from "vuex-router-sync";
 import * as filters from "./util/filters";
 import "./registerServiceWorker";
+import titleMixin from "./util/title";
 
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key]);
 });
+
+Vue.mixin(titleMixin);
 
 Vue.config.productionTip = false;
 

@@ -2,7 +2,8 @@
   <header class="navigation">
     <router-link to="/" tag="h1" exact>Hacker Vuex</router-link>
     <router-link to="/top">Top</router-link>
-    <router-link to="/new">New </router-link>
+    <router-link to="/new">New</router-link>
+    <router-link to="/best">Best</router-link>
     <router-link to="/ask">Ask</router-link>
     <router-link to="/show">Show</router-link>
     <router-link to="/jobs">Jobs</router-link>

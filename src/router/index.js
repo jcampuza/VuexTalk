@@ -4,6 +4,7 @@ import Router from "vue-router";
 const createListView = type => () =>
   import("../views/CreateListView").then(m => m.default(type));
 const ItemView = () => import("../views/ItemView.vue");
+const UserView = () => import("../views/UserView.vue");
 
 Vue.use(Router);
 
@@ -21,6 +22,10 @@ export default new Router({
       component: createListView("new")
     },
     {
+      path: "/best/:page(\\d+)?",
+      component: createListView("best")
+    },
+    {
       path: "/show/:page(\\d+)?",
       component: createListView("show")
     },
@@ -31,6 +36,10 @@ export default new Router({
     {
       path: "/jobs/:page(\\d+)?",
       component: createListView("job")
+    },
+    {
+      path: "/users/:id(\\w+)?",
+      component: UserView
     },
     { path: "/item/:id(\\d+)?", component: ItemView },
     { path: "*", redirect: "/top" }

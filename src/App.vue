@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav-bar></nav-bar>
+    <nav-bar />
     <transition name="fade">
       <router-view class="view"/>
     </transition>

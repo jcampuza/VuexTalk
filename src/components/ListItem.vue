@@ -13,7 +13,7 @@
         </template>
       </div>
       <div class="info">
-        Created by <router-link :to="'/item/' + item.by">{{item.by}}</router-link>
+        Created by <router-link :to="'/users/' + item.by">{{item.by}}</router-link>
         <span> {{ item.time | timeAgo }} ago</span>
         | <router-link :to="itemLink">{{commentsText}}</router-link>
       </div>

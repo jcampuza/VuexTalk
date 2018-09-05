@@ -1,17 +1,18 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { fetchListType, fetchItems } from "../api";
+import { fetchListType, fetchItems, fetchUser } from "../api";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     items: {},
-    active: "top",
+    active: null,
     maxPageSize: 20,
     lists: {
       top: [],
       new: [],
+      best: [],
       ask: [],
       show: [],
       job: []
@@ -75,6 +76,11 @@ export default new Vuex.Store({
 
       const items = await fetchItems(itemsToFetch);
       commit("SET_ITEMS", { items });
+    },
+
+    FETCH_USER: async ({ commit }, { id }) => {
+      const user = await fetchUser(user);
+      console.log(user);
     }
   }
 });
