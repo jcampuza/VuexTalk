@@ -7,6 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     items: {},
+    users: {},
     active: null,
     maxPageSize: 20,
     lists: {
@@ -33,6 +34,10 @@ export default new Vuex.Store({
 
     SET_ACTIVE_TYPE: (state, { type }) => {
       state.active = type;
+    },
+
+    SET_USER: (state, { user, id }) => {
+      Vue.set(state.users, id, user || false);
     }
   },
   getters: {
@@ -78,9 +83,23 @@ export default new Vuex.Store({
       commit("SET_ITEMS", { items });
     },
 
-    FETCH_USER: async ({ commit }, { id }) => {
-      const user = await fetchUser(user);
-      console.log(user);
+    FETCH_NESTED_ITEMS: async ({ commit, dispatch }, { item }) => {
+      if (item && item.kids) {
+        const items = await fetchItems(item.kids);
+        commit("SET_ITEMS", { items });
+        return Promise.all(
+          items.map(item => dispatch("FETCH_NESTED_ITEMS", { item }))
+        );
+      }
+    },
+
+    FETCH_USER: async ({ commit, state }, { id }) => {
+      if (state.users[id]) {
+        return state.users[id];
+      }
+
+      const user = await fetchUser(id);
+      commit("SET_USER", { id, user });
     }
   }
 });

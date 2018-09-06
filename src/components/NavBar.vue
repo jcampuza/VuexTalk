@@ -6,7 +6,7 @@
     <router-link to="/best">Best</router-link>
     <router-link to="/ask">Ask</router-link>
     <router-link to="/show">Show</router-link>
-    <router-link to="/jobs">Jobs</router-link>
+    <router-link to="/job">Jobs</router-link>
   </header>
 </template>
 
@@ -43,6 +43,10 @@ export default {};
 
   color: #dfdfdf;
   text-decoration: none;
+
+  &:hover {
+    color: #ffffff;
+  }
 
   &.router-link-active {
     color: #ffffff;

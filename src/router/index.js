@@ -34,11 +34,11 @@ export default new Router({
       component: createListView("ask")
     },
     {
-      path: "/jobs/:page(\\d+)?",
+      path: "/job/:page(\\d+)?",
       component: createListView("job")
     },
     {
-      path: "/users/:id(\\w+)?",
+      path: "/user/:id(\\w+)?",
       component: UserView
     },
     { path: "/item/:id(\\d+)?", component: ItemView },

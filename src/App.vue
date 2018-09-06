@@ -31,6 +31,16 @@ export default {
   min-height: 100vh;
 }
 
+a {
+  color: #2b2b2b;
+  text-decoration: none;
+
+  &:not(.disabled):hover {
+    color: green;
+    text-decoration: underline;
+  }
+}
+
 .view {
   max-width: 800px;
   margin: 0 auto;

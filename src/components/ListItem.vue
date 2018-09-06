@@ -13,7 +13,7 @@
         </template>
       </div>
       <div class="info">
-        Created by <router-link :to="'/users/' + item.by">{{item.by}}</router-link>
+        Created by <router-link :to="'/user/' + item.by">{{item.by}}</router-link>
         <span> {{ item.time | timeAgo }} ago</span>
         | <router-link :to="itemLink">{{commentsText}}</router-link>
       </div>
@@ -44,6 +44,7 @@ export default {
 .item {
   display: flex;
   padding: 1.5rem 0;
+  padding-right: 1.5rem;
   align-items: center;
 }
 
@@ -76,7 +77,7 @@ export default {
   text-align: center;
   color: green;
   font-weight: 600;
-  width: 80px;
+  min-width: 80px;
 }
 
 .item .info {

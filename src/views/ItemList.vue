@@ -75,11 +75,10 @@ export default {
 
 <style scoped lang="scss">
 .items {
-  margin-top: 5rem;
+  margin-top: calc(40px + 2rem);
   margin-bottom: 2rem;
   background-color: #fcfcfc;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.42);
-  transition: all 0.25s ease-out;
 }
 
 .pagination {
@@ -88,7 +87,10 @@ export default {
   top: 60px;
   left: 0;
   right: 0;
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
   text-align: center;
   margin: 0 auto;
   background-color: #eee;
@@ -113,5 +115,12 @@ export default {
 .slide-right-enter {
   opacity: 0;
   transform: translate(-30px, 0);
+}
+
+@media (max-width: 800px) {
+  .items {
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
 }
 </style>
