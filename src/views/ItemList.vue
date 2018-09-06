@@ -18,12 +18,10 @@
 
 <script>
 import ListItem from "@/components/ListItem.vue";
-import Spinner from "@/components/Spinner.vue";
 
 export default {
   components: {
-    ListItem,
-    Spinner
+    ListItem
   },
   name: "top-stories-view",
   props: ["type"],
