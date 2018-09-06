@@ -19,6 +19,12 @@ export default {
 
 
 <style lang="scss">
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 #app {
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,6 +35,8 @@ export default {
   padding-top: 60px;
   background-color: #fff;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -43,6 +51,7 @@ a {
 
 .view {
   max-width: 800px;
+  min-width: 800px;
   margin: 0 auto;
 }
 
@@ -54,5 +63,11 @@ a {
 .fade-enter,
 .fade-leave-active {
   opacity: 0;
+}
+
+@media (max-width: 800px) {
+  .view {
+    margin: 0;
+  }
 }
 </style>

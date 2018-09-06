@@ -18,10 +18,12 @@
 
 <script>
 import ListItem from "@/components/ListItem.vue";
+import Spinner from "@/components/Spinner.vue";
 
 export default {
   components: {
-    ListItem
+    ListItem,
+    Spinner
   },
   name: "top-stories-view",
   props: ["type"],
@@ -79,6 +81,7 @@ export default {
   margin-bottom: 2rem;
   background-color: #fcfcfc;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.42);
+  transition: all 200ms ease-out;
 }
 
 .pagination {

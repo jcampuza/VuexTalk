@@ -1,5 +1,7 @@
 <template>
-  <div v-if="loading">Loading</div>
+  <div v-if="loading" class="spinner">
+    <spinner size="large" :show="true" />
+  </div>
   <div v-else class="item-view">
     <div class="header">
       <h3 class="title"><a rel="noopener" target="blank" :href="item.url" class="title__link">{{item.title}}</a></h3>
@@ -17,10 +19,12 @@
 
 <script>
 import Comment from "@/components/Comment.vue";
+import Spinner from "@/components/Spinner.vue";
 
 export default {
   components: {
-    Comment
+    Comment,
+    Spinner
   },
 
   data() {
@@ -88,6 +92,13 @@ export default {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 1rem;
+}
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
 @media (max-width: 800px) {

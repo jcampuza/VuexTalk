@@ -66,6 +66,7 @@ export default {};
 
   .navigation {
     justify-content: space-between;
+    padding: 0 1.5rem;
   }
 
   .navigation a {
