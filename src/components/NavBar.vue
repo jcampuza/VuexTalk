@@ -1,6 +1,6 @@
 <template>
   <header class="navigation">
-    <router-link to="/" tag="h1" exact>Hacker Vuex</router-link>
+    <router-link to="/" tag="h1" exact class="logo">Hacker Vuex</router-link>
     <router-link to="/top">Top</router-link>
     <router-link to="/new">New</router-link>
     <router-link to="/best">Best</router-link>
@@ -57,5 +57,20 @@ export default {};
 .navigation__title {
   color: #fff;
   font-size: 1.2rem;
+}
+
+@media (max-width: 800px) {
+  .logo {
+    display: none;
+  }
+
+  .navigation {
+    justify-content: space-between;
+  }
+
+  .navigation a {
+    margin-right: 0;
+    font-size: 15px;
+  }
 }
 </style>

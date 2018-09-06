@@ -1,1 +1,5 @@
-{}
+{
+  "projects": {
+    "hacker-vuex": "hacker-vuex"
+  }
+}
