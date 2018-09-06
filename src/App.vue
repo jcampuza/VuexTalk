@@ -68,6 +68,7 @@ a {
 @media (max-width: 800px) {
   .view {
     margin: 0;
+    min-width: auto;
   }
 }
 </style>
