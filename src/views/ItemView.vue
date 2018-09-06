@@ -1,6 +1,8 @@
 <template>
-  <div v-if="loading" class="spinner">
-    <spinner size="large" :show="true" />
+  <div v-if="loading">
+    <div class="spinner">
+      <spinner size="large" :show="true" />
+    </div>
   </div>
   <div v-else class="item-view">
     <div class="header">
@@ -98,7 +100,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  margin-top: 5rem;
 }
 
 @media (max-width: 800px) {
